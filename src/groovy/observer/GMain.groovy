@@ -11,8 +11,8 @@ class GMain {
                 new Algorithm(-432),
                 new Algorithm(0),
                 new Algorithm(0.001),
-                new Algorithm(1.337),
-                new Algorithm(-6000.0005),
+                new Algorithm(-1.337),
+                new Algorithm(600.006),
                 new Algorithm(99999)
         ]
 
@@ -21,6 +21,6 @@ class GMain {
         def threads = algorithms.stream()
                 .map{ algorithm -> new Thread(algorithm) }
 
-        threads*.start();
+        threads*.start()
     }
 }
