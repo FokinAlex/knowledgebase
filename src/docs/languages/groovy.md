@@ -1,10 +1,9 @@
-# Groovy
-
 ![Apache Groovy Logo][logo]
 
 **Apache Groovy** is an object-oriented, imperative, scripting programming language. 
 
-[:back:](back)
+[![Go Back][backmark]][backlink]
+[![Go Home][homemark]][homelink]
 
 ## Contents
 
@@ -284,6 +283,8 @@ import groovy.util.XmlParser
 def parser = new XmlParser()
 ```
 
+Parsing:
+
 ```groovy
 def doc = parser.parse('helloworld.xml')
 
@@ -292,5 +293,8 @@ println doc.body.div[0].p      // returns list of Nodes
 println doc.body.div["@class"] // returns list of values div's class-attribute 
 ```
 
-[back]: https://github.com/FokinAlex/knowledgebase/blob/master/readme.md
-[logo]: https://github.com/FokinAlex/knowledgebase/blob/master/src/resources/logos/groovy.png
+[logo]:     https://github.com/FokinAlex/knowledgebase/blob/master/src/resources/logos/groovy.png?raw=true
+[homelink]: https://github.com/FokinAlex/knowledgebase
+[homemark]: https://github.com/FokinAlex/knowledgebase/blob/master/src/resources/marks/home.png?raw=true
+[backlink]: https://github.com/FokinAlex/knowledgebase/blob/master/readme.md
+[backmark]: https://github.com/FokinAlex/knowledgebase/blob/master/src/resources/marks/backward.png?raw=true
