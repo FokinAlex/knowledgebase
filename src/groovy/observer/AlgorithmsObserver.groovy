@@ -8,15 +8,15 @@ class AlgorithmsObserver implements Observer {
             switch (status) {
                 case AlgorithmsStatuses.PENDING:
                     println "${this}:\t${algorithm}\tis waiting..."
-                    break;
+                    break
 
                 case AlgorithmsStatuses.IN_PROGRESS:
                     println "${this}:\t${algorithm}\tupdates value -> ${algorithm.getResult()}"
-                    break;
+                    break
 
                 case AlgorithmsStatuses.DONE:
                     println "${this}:\t${algorithm}\tends with result ${algorithm.getResult()}"
-                    break;
+                    break
 
                 default:
                     throw new IllegalArgumentException("Illegal algorithm status")
