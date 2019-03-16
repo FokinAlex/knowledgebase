@@ -84,11 +84,52 @@ class ImmutablePerson {
 
 ## Operators
 
-| Operator | Usage              | Meaning                       |
-|:--------:|:------------------:|:-----------------------------:|
-| `?:`     | `def b = a ?: b`   | returns b, if a is null       |
-| `?.`     | `user?.name`       | returns null, if user is null |
-| `*.`     | `threads*.start()` | do `start` for each thread    |
+Some operators:
+
+Operator  | Usage                               | Meaning                                   
+:--------:|:-----------------------------------:|:---
+`?:`      | `def b = a ?: b`                    | returns `b`, if `a` is null
+`?.`      | `person?.name`                      | returns null, if `person` is null
+`*.` `*:` | `persons*.getName()`                | gets name for each person in `persons`
+`.@`      | `person.@name`                      | force usage of `name` instead of getter
+`.&`      | `def getter = person.&getName()`    | stores the reference of the method
+`~`       | `Pattern pattern = ~'regexp'`       | returns a Pattern with regular expression
+`=~`      | `Matcher matcher = text =~ pattern` | returns a Matcher against the `text` and `pattern`
+`==~`     | `Boolean = text ==~ pattern`        | matches the `text` with the regular expression (match must be strict)
+`..`      | `0..7`, `2..<9`, `-1..4`            | see [Ranges](#Ranges)
+`<=>`     | `1 <=> 2`                           | compares elements with `compareTo` method
+`in`      | `person in company`                 | calls `isCase` (`contains`) method
+`is`      | `person1.is(person2)`               | compares references equality
+`as`      | `person as Student`                 | coerces (cast) `person` to a `Student`     
+`()`      | `phone(number)`                     | calls `.call()` method without `.call`
+
+Groovy allows you to **overload** the various operators.
+List of the operators and their corresponding methods:
+
+Operator   | Method     
+:---------:|:---
+`+`        | `a.plus(b)`
+`-`        | `a.minus(b)`
+`*`        | `a.multiply(b)`
+`/`        | `a.div(b)`
+`%`        | `a.mode(b)`
+`**`       | `a.power(b)`
+`&`        | `a.and(b)`
+*pipe*     | `a.or(b)`
+`^`        | `a.xor(b)`
+`as`       | `a.asType(b)`
+`in`       | `a.isCase(b)`
+`()`       | `a.call()`
+`a[b]`     | `a.getAt(b)`
+`a[b] = c` | `a.putAt(b, c)`
+`>>`       | `a.rigntShift(b)`
+`<<`       | `a.rightShift(b)`
+`>>>`      | `a.rigthShiftUnsigned(b)`
+`+a`       | `a.positive()`
+`-a`       | `a.negative()`
+`~a`       | `a.bitwiseNegate()`
+`++`       | `a.next()`
+`--`       | `a.previous()`
 
 ## Files
 
@@ -193,31 +234,31 @@ sql = Sql.newInstance(adress, username, password, driver)
 **Creating** table with `execute` method:
 
 ```groovy
-sql.execute '''
+sql.execute """
     create table persons (
         id integer not null,
         name varchar(100)
     )
-'''
+"""
 ```
 
 **Inserting** values into table with `execute` method:
 
 ```groovy
-sql.execute '''
+sql.execute """
     insert into persons (name)
     values (${person.getName()})
-'''
+"""
 ```
 
 **Updating** values in table with `executeUpdate` method:
 
 ```groovy
-sql.executeUpdate '''
+sql.executeUpdate """
     update persons set
         name = ${person.getName()}
     where id = ${person.getId()}
-'''
+"""
 ```
 
 ### Select:
@@ -225,10 +266,10 @@ sql.executeUpdate '''
 Selecting with `rows`:
 
 ```groovy
-def rows = sql.rows('''
+def rows = sql.rows("""
     select * from persons
     where name like 'Alex%'
-''')
+""")
 
 println rows.join('\n')
 ```
@@ -244,7 +285,7 @@ sql.eachRow("select * from persons") { person ->
 ### Close connection:
 
 ```groovy
-sql.closer()
+sql.close()
 ```
 
 ## XML
