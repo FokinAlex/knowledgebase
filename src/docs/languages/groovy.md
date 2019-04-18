@@ -105,7 +105,7 @@ Operator  | Usage                               | Meaning
 Groovy allows you to **overload** the various operators.
 List of the operators and their corresponding methods:
 
-Operator   | Method     
+Operator   | Method
 :---------:|:---
 `+`        | `a.plus(b)`
 `-`        | `a.minus(b)`
@@ -114,7 +114,7 @@ Operator   | Method
 `%`        | `a.mode(b)`
 `**`       | `a.power(b)`
 `&`        | `a.and(b)`
-*pipe*     | `a.or(b)`
+*pipe**    | `a.or(b)`
 `^`        | `a.xor(b)`
 `as`       | `a.asType(b)`
 `in`       | `a.isCase(b)`
@@ -129,6 +129,8 @@ Operator   | Method
 `~a`       | `a.bitwiseNegate()`
 `++`       | `a.next()`
 `--`       | `a.previous()`
+
+\* pipe = `|`
 
 ## Files
 

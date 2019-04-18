@@ -3,12 +3,10 @@ package observer
 class Algorithm extends Observable implements Runnable {
 
     private def result
-    private def status
     private def some
 
     Algorithm(double start) {
         result = start
-        status = AlgorithmsStatuses.PENDING
         some = Math.random() * 100
     }
 
@@ -26,7 +24,6 @@ class Algorithm extends Observable implements Runnable {
     }
 
     private setStatus(AlgorithmsStatuses status) {
-        this.status = status
         setChanged()
         notifyObservers(status)
     }
