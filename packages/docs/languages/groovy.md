@@ -130,7 +130,7 @@ Operator   | Method
 `++`       | `a.next()`
 `--`       | `a.previous()`
 
-\* pipe = `|`
+\* - *pipe* is for `|`
 
 ## Files
 
@@ -336,8 +336,8 @@ println doc.body.div[0].p      // returns list of Nodes
 println doc.body.div["@class"] // returns list of values div's class-attribute 
 ```
 
-[logo]:     https://github.com/FokinAlex/knowledgebase/blob/master/src/resources/logos/groovy.png?raw=true
+[logo]:     https://github.com/FokinAlex/knowledgebase/blob/master/resources/logos/groovy.png?raw=true
 [homelink]: https://github.com/FokinAlex/knowledgebase
-[homemark]: https://github.com/FokinAlex/knowledgebase/blob/master/src/resources/marks/home.png?raw=true
+[homemark]: https://github.com/FokinAlex/knowledgebase/blob/master/resources/marks/home.png?raw=true
 [backlink]: https://github.com/FokinAlex/knowledgebase/blob/master/readme.md
-[backmark]: https://github.com/FokinAlex/knowledgebase/blob/master/src/resources/marks/backward.png?raw=true
+[backmark]: https://github.com/FokinAlex/knowledgebase/blob/master/resources/marks/backward.png?raw=true
